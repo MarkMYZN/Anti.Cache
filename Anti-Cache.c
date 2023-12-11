@@ -4,22 +4,18 @@
 
 int main(){
     
-    /*
-        I created this software with the idea of helping people with slow computers.
+    //I created this software with the idea of helping people with slow computers.
         
-            If ran, it will optimize, clean, refresh, and repair missing or corrupted files
-        in your computer.
+    //If ran, it will optimize, clean, refresh, and repair missing or corrupted files
+    //in your computer.
         
-        Make sure to run it as Administrator, And please proceed with caution.
-    */
+    //Make sure to run it as Administrator, And please proceed with caution. 
+    
 
     system("echo Created By MarkMYZN");
     system("echo off");
 
-    system("wmic.exe /Namespace:\\\root\\default Path SystemRestore Call CreateRestorePoint "Latest Restore-Point", 100, 7");
-
-    system("powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61"); 
-    // doesnt do anything more than add an additional power "ultimare" power feature
+    system("wmic.exe /Namespace:\\\root\\default Path SystemRestore Call CreateRestorePoint \"Latest Restore-Point\", 100, 7");
 
     // ==========|| Disables Some apps from Starting in Logon ||==========
     system("reg add HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components /v Google Chrome /t REG_SZ /d "" /f");
