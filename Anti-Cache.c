@@ -11,18 +11,36 @@ int main(){
         
     //Make sure to run it as Administrator, And please proceed with caution. 
     
+    FILE *fp;
+    fp = fopen("log.txt", "w");
+    if (fp == NULL) {
+        perror("Error opening log file");
+        return 1;
+    }
+
+    // Redirect stdout and stderr to the log file
+    if (freopen("log.txt", "w", stdout) == NULL) {
+        perror("Error redirecting stdout to log file");
+        return 1;
+    }
+    if (freopen("log.txt", "w", stderr) == NULL) {
+        perror("Error redirecting stderr to log file");
+        return 1;
+    }
 
     system("echo Created By MarkMYZN");
+    printf("The code will execute shortly.");
     system("echo off");
 
     system("wmic.exe /Namespace:\\\root\\default Path SystemRestore Call CreateRestorePoint \"Latest Restore-Point\", 100, 7");
 
     // ==========|| Disables Some apps from Starting in Logon ||==========
-    system("reg add HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components /v Google Chrome /t REG_SZ /d "" /f");
-    system("reg add HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components /v Microsoft Edge /t REG_SZ /d "" /f");
-    system("reg add HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v Steam /t REG_SZ /d "" /f");
-    system("reg add HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v MicrosoftEdgeAutoLaunch_F0F41C1CE79B46820675944F246DE300 /t REG_SZ /d "" /f");
-    system("reg add HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v Discord /t REG_SZ /d "" /f");
+    system("reg add HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components /v Google Chrome /t REG_SZ /d \"\" /f");
+    system("reg add HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components /v Microsoft Edge /t REG_SZ /d \"\" /f");
+    system("reg add HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v Steam /t REG_SZ /d \"\" /f");
+    system("reg add HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v MicrosoftEdgeAutoLaunch_F0F41C1CE79B46820675944F246DE300 /t REG_SZ /d \"\" /f");
+    system("reg add HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run /v Discord /t REG_SZ /d \"\" /f");
+
 
     // ==========|| Disable HPET ||==========
     system("bcdedit /deletevalue useplatformclock");
@@ -81,10 +99,13 @@ int main(){
     system("netsh winsock reset");
 
     // ==========|| PC Checkhealth and ScanNow ||==========
-    system("sfc /scannow");
     system("DISM /Online /Cleanup-Image /CheckHealth");
     system("DISM /Online /Cleanup-Image /ScanHealth");
     system("DISM /Online /Cleanup-Image /RestoreHealth /Source:repairSource\\install.wim");
+
+    printf("This PC Will be shutting down now.");
+
+    fclose(fp);
 
     // PC Shutdown
     system("shutdown -s -t 0");
