@@ -17,3 +17,11 @@ https://github.com/MarkMYZN/Anti-Cache/releases/tag/Release
 2. Select "Anti-Cache.exe"
 
 3. Place the exe to anywhere you want to execute it.
+
+4. Right-click the file and run as Admin, which requires administrative privileges for the commands to work.
+
+5. DO NOT exit the application (unless you accidentally clicked on it), It will automatically shutdown the computer.
+
+6. After shutdown, you can now start-up again your computer.
+
+7. And Boom! Your computer will be smooth and fast again.
