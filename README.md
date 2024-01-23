@@ -12,7 +12,7 @@ Make sure to run it as Administrator, And please proceed with caution.
 # How to use:
 
 1. Download the Application Here:
-https://github.com/MarkMYZN/Anti-Cache/releases/tag/Release
+https://github.com/MarkMYZN/Anti-Cache/releases
 
 2. Select "Anti-Cache.exe"
 
