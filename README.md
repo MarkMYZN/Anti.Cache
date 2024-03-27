@@ -7,7 +7,9 @@ If run, it will optimize, clean, refresh, and repair missing or corrupted files 
 
 Make sure to run it as Administrator, And please proceed with caution.
 
-
+Huge thanks for the free icon: <br>
+**_lakonicon_** <br>
+https://www.flaticon.com/authors/lakonicon
 
 # How to use:
 
